@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "595291304674",
+    "firebase_url": "https://bookingform-241a7.firebaseio.com",
+    "project_id": "bookingform-241a7",
+    "storage_bucket": "bookingform-241a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595291304674:android:f4c8d7787b38be9a",
+        "android_client_info": {
+          "package_name": "com.kumarproperties.booking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595291304674-j64l7uoqho33ifbf13091l2sqkqkllo9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kumarproperties.booking",
+            "certificate_hash": "b6e4c189487cf8b4329fcd2f1c1efae3f06c713d"
+          }
+        },
+        {
+          "client_id": "595291304674-98van434c1i6bbi0iqcoqva15f330akq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgBPcnhTPAmzfUVCmuHH4UBzbhzUwrgTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595291304674-98van434c1i6bbi0iqcoqva15f330akq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

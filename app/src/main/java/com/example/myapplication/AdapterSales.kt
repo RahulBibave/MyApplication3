@@ -2,7 +2,7 @@ package com.example.myapplication
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.TextureView
@@ -105,7 +105,7 @@ class AdapterSales(val mContext :Context,val salesarray:ArrayList<SalesData>,val
     }
 
 
-    inner class ViewHolderSales (itemView:View):RecyclerView.ViewHolder(itemView){
+    inner class ViewHolderSales (itemView:View): RecyclerView.ViewHolder(itemView){
          var txtRqube :TextView?=null
         var txtProject :TextView?=null
         var txtBuild   :TextView?=null

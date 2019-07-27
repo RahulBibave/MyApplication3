@@ -2,7 +2,7 @@ package com.example.myapplication
 
 import android.app.AlertDialog
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
 
     fun buNext(view:View){
 
-        if (!(proID.equals("") && buildID.equals("") && edtFlatNo.text.toString().equals("")&& edtRqube.text.toString().equals(""))){
+        if (!(proID.equals("") || buildID.equals("") || edtFlatNo.text.toString().equals("") || edtRqube.text.toString().equals(""))){
             val intents=Intent(this,Activity_UploadImages::class.java)
             if (checkbox.isChecked){
                 intents.putExtra("chennel","2")

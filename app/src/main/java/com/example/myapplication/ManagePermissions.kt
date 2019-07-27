@@ -3,8 +3,8 @@ package com.example.myapplication
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.pm.PackageManager
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 
 class ManagePermissions (val activity: Activity, val list: List<String>, val code:Int) {
 

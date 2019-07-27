@@ -4,12 +4,12 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.opengl.Visibility
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import com.android.volley.DefaultRetryPolicy
@@ -100,6 +100,7 @@ class ActivityFormView : AppCompatActivity() {
             lin_note_sale.visibility=View.VISIBLE
             txtMan.text=manager_note
             txtMannote.text="Note"
+            txtSales.text=salesco_note
             edtNote.visibility=View.VISIBLE
         }else if (ActivitApproval.role.equals("Sales_Co-ordinator")){
             lin_note_sale.visibility=View.VISIBLE
@@ -138,7 +139,7 @@ class ActivityFormView : AppCompatActivity() {
         }
 
 
-        recyclerViewIMg.layoutManager= GridLayoutManager(this,3)
+        recyclerViewIMg.layoutManager= GridLayoutManager(this, 3)
         val adapter=AdapterFormView(this,imgList)
         recyclerViewIMg.adapter=adapter
 
@@ -202,7 +203,7 @@ class ActivityFormView : AppCompatActivity() {
         // On click listener for dialog buttons
         val dialogClickListener = DialogInterface.OnClickListener{_,which ->
             when(which){
-                DialogInterface.BUTTON_POSITIVE -> submitApprove()
+                DialogInterface.BUTTON_POSITIVE -> submitApprove("1")
 
                // DialogInterface.BUTTON_NEGATIVE -> toast("Negative/No button clicked.")
                 DialogInterface.BUTTON_NEUTRAL -> dialog.dismiss()
@@ -234,7 +235,50 @@ class ActivityFormView : AppCompatActivity() {
        // submitApprove()
     }
 
-    fun submitApprove(){
+
+   /* fun buReject(view: View){
+        lateinit var dialog: AlertDialog
+
+        // Initialize a new instance of alert dialog builder object
+        val builder = AlertDialog.Builder(this)
+
+        // Set a title for alert dialog
+        builder.setTitle("Megapolis")
+
+        // Set a message for alert dialog
+        builder.setMessage("Are you sure you want to Reject this ?")
+
+
+        // On click listener for dialog buttons
+        val dialogClickListener = DialogInterface.OnClickListener{_,which ->
+            when(which){
+                DialogInterface.BUTTON_POSITIVE -> submitApprove("2")
+
+                // DialogInterface.BUTTON_NEGATIVE -> toast("Negative/No button clicked.")
+                DialogInterface.BUTTON_NEUTRAL -> dialog.dismiss()
+            }
+        }
+
+
+        // Set the alert dialog positive/yes button
+        builder.setPositiveButton("YES",dialogClickListener)
+
+        *//* // Set the alert dialog negative/no button
+         builder.setNegativeButton("NO",dialogClickListener)*//*
+
+        // Set the alert dialog neutral/cancel button
+        builder.setNeutralButton("CANCEL",dialogClickListener)
+
+
+        // Initialize the AlertDialog using builder object
+        dialog = builder.create()
+
+        // Finally, display the alert dialog
+        dialog.show()
+
+    }
+*/
+    fun submitApprove(status:String){
         val mUrl=" http://bookings.megapolis.co.in/approval"
         var requestQueue=Volley.newRequestQueue(this)
         var stringRequest=object :StringRequest(Request.Method.POST,mUrl, Response.Listener
@@ -274,7 +318,7 @@ class ActivityFormView : AppCompatActivity() {
                 params.put("user_id",ActivitApproval.userID)
                 params.put("role",ActivitApproval.role)
                 params.put("form_id",form_id)
-                params.put("checked_status","1")
+                params.put("checked_status",status)
                 params.put("note",edtNote.text.toString())
 
                 Log.e("ccccccccccccccccccc",""+ActivitApproval.userID+"          "+ActivitApproval.role+"  "+form_id)

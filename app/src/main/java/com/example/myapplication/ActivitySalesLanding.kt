@@ -6,9 +6,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
 import com.android.volley.DefaultRetryPolicy
@@ -127,7 +127,7 @@ class ActivitySalesLanding : AppCompatActivity(), OnClickListner {
 
 
                     }
-                    recyclerView.layoutManager=LinearLayoutManager(this)
+                    recyclerView.layoutManager= LinearLayoutManager(this)
                     var adapter=AdapterSales(this,list,this)
                     recyclerView.adapter=adapter
 

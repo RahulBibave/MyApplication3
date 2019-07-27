@@ -3,9 +3,9 @@ package com.example.myapplication
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
 import com.android.volley.DefaultRetryPolicy
@@ -36,13 +36,18 @@ class ActivitApproval : AppCompatActivity(),OnClickListner {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_approval)
         sharedPreferences = getSharedPreferences(myPreferences, Context.MODE_PRIVATE)
-        recyclerViewApp.layoutManager=LinearLayoutManager(this)
+        recyclerViewApp.layoutManager= LinearLayoutManager(this)
         userID= sharedPreferences!!.getString("userIDx", "").toString()
          buidID= sharedPreferences!!.getString("buidIDx", "").toString()
          proID= sharedPreferences!!.getString("proIDx", "").toString()
         role= sharedPreferences!!.getString("rolex", "").toString()
         var name=sharedPreferences!!.getString("userNamex", "")
-        txtName.text=name+" ( "+ role+" )"
+        if (role.equals("Manager")){
+            txtName.text=name+" ( GM )"
+        }else{
+            txtName.text=name+" ( "+ role+" )"
+        }
+
         getAllForms(role,userID)
         pullToRefresh.setOnRefreshListener{
             getAllForms(role,userID)

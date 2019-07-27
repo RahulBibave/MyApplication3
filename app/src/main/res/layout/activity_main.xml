@@ -31,7 +31,6 @@
             android:background="@drawable/edittext_boarder"
             android:elevation="5dp"
             android:textSize="20dp"
-            android:inputType="number"
             android:singleLine="true"
             android:hint="Rqube Id"
             android:imeOptions="actionDone"
